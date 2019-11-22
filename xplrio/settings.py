@@ -58,7 +58,10 @@ DEFAULT_LOGOUT_URL = '/'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates').replace('\\', '/')],
+        'DIRS': [
+            os.path.join(BASE_DIR, 'templates').replace('\\', '/'),
+            os.path.join(BASE_DIR, )
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
