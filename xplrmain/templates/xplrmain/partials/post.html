@@ -1,67 +1,118 @@
-<div class="row">
-    <div class="col-md-12">
-        <!-- header and follow button -->
+{% load static %}
+
+<div class="card">
+    <div class="card-body">
+        <!-- Card Body -->
         <div class="row">
             <div class="col-md-12">
-                <h4>Header will go here</h4>
-            </div>
-        </div>
+                <!-- header and follow button -->
 
-        <!-- images -->
-        <div class="row">
-            <div class="col-md-6">
-                <img src="http://via.placeholder.com/250x500" alt="">
-            </div>
-            <div class="col-md-6">
-                <img src="http://via.placeholder.com/250x500" alt="">
-            </div>
-        </div>
-
-        <!-- Image Parameters -->
-        <div class="row">
-            <div class="col-md-12">
-                <!-- First Row -->
-                <div class="row">
-                    <div class="col-md-2">
-                        <h5>Go</h5>
-                    </div>
-                    <div class="col-md-2">
-                        <h5>Visited</h5>
-                    </div>
-                    <div class="col-md-2">
-                        <h5>Coordinates</h5>
-                    </div>
-                    <div class="col-md-2">
-                        <h5>Difficulty</h5>
-                    </div>
-                    <div class="col-md-2"></div>
-                    <div class="col-md-2">
-                        <h5>Save</h5>
+                <div class="container">
+                    <div class="row inline align-middle">
+                        <div class="col-md-6 align-items-center">
+                            <div class="row d-flex justify-content-start">
+                                <div class="test inline-block">
+                                    <img class='img-circle' style="height: 40px; width: auto; border-radius: 50%; padding-right: 10px" src="{% static "images/profile_picture.png" %}"/>
+                                </div>
+                                <div class="test inline-block">
+                                    <p>the_russian_spy_andrey</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="row d-flex justify-content-end">
+                                <h5><span class="badge badge-secondary post-button"><span class="fas fa-user-plus"></span> Follow</h5>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Description -->
-                <div class="row">
+
+
+
+
+                <!-- images -->
+                <div class="row d-flex justify-content-between" style="padding: 15px">
+                    <div class="test">
+                        <img src="http://via.placeholder.com/325x500" alt="">
+                    </div>
+                    <div class="test">
+                        <img src="http://via.placeholder.com/325x500" alt="">
+                    </div>
+                </div>
+
+                <!-- Image Parameters -->
+                <div class="row" style="padding-top: 15px">
                     <div class="col-md-12">
-                        <h4>Caption/Description will go here</h4>
+                        <!-- First Row -->
+                        <div class="row" style="padding-left: 13px; padding-right: 8px">
+                            <div class="col-md-8">
+                                <div class="row d-flex justify-content-between">
+                                    <div class="test">
+                                        <h5><span class="badge badge-secondary post-button"><span class="fas fa-car"></span> Go</h5>
+                                    </div>
+                                    <div class="test">
+                                        <h5><span class="badge badge-secondary post-button"><span class="fas fa-map"></span> Visited</h5>
+                                    </div>
+                                    <div class="test">
+                                        <h5><span class="badge badge-secondary post-button"><span class="fas fa-map-pin"></span> Coordinates</h5>
+                                    </div>
+                                    <div class="test">
+                                        <h5><span class="badge badge-secondary post-button"><span class="fas fa-layer-group"></span> Difficulty</h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-2"></div>
+                            <div class="col-md-2">
+                                <div class="row d-flex justify-content-end">
+                                    <div class="test">
+                                        <h5><span class="badge badge-secondary post-button"><span class="fas fa-bookmark"></span> Save</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Description -->
+                        <div class="row" style="padding-top: 15px">
+                            <div class="col-md-12">
+                                <div class="card" style="border-radius: 10px; border: 0px">
+                                    <div class="card-body" style="padding: 8px; margin: 0px; background-color: #EEEEEE; color: #272727;">
+                                        <h5><span class="fas fa-sticky-note"></span> Notes from creator</h5>
+                                        <p>Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem
+                                            Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum
+                                            Lorem Ipsum Lorem Ipsum Lorem Ipsum</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <!-- Some more parameters -->
+                        <div class="row" style="padding-top: 15px">
+                            <div class="col-md-6">
+                                <div class="card" style="border-radius: 10px; border: 0px">
+                                    <div class="card-body" style="padding: 8px; margin: 0px; background-color: #EEEEEE; color: #272727;">
+                                        <h5><span class="fas fa-clock"></span> Time to visit</h5>
+                                        <p>Always :)</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card" style="border-radius: 10px; border: 0px">
+                                    <div class="card-body" style="padding: 8px; background-color: #EEEEEE; color: #272727;">
+                                        <h5><span class="fas fa-check-circle" style="color: #26DB87"></span> Verified Coodinates</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
                     </div>
                 </div>
 
-                <!-- Some more parameters -->
-                <div class="row">
-                    <div class="col-md-6">
-                        <h5>Time to visit</h5>
-                    </div>
-                    <div class="col-md-6">
-                        <h5>Verified coordinates</h5>
-                    </div>
-                </div>
 
 
             </div>
         </div>
-
-
-
     </div>
 </div>
