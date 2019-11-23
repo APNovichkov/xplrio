@@ -2,10 +2,10 @@
 
 ## Prerequisites
 
-Brew
-Python 3.4+
-Pipenv
-PostgreSQL
+-   Brew
+-   Python 3.4+
+-   Pipenv
+-   PostgreSQL
 
 ## Getting Started
 
