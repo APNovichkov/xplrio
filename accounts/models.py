@@ -2,7 +2,7 @@ from django.db import models
 
 
 # Create your models here.
-class user(models.Model):
+class User(models.Model):
     user_id = models.FloatField()  # randomly genrated byte
     first_name = models.CharField(max_length=30)
     last_name = models.CharField(max_length=30)
@@ -20,5 +20,5 @@ class user(models.Model):
     visited_posts = models.Empty()
 
 
-class graph(models.Model):
+class Graph(models.Model):
     id = models.FloatField()
