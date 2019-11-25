@@ -18,3 +18,7 @@ class user(models.Model):
     following = models.Empty()
     saved_posts = models.Empty()
     visited_posts = models.Empty()
+
+
+class graph(models.Model):
+    id = models.FloatField()
