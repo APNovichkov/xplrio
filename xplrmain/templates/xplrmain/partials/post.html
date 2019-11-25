@@ -7,28 +7,16 @@
             <div class="col-md-12">
                 <!-- header and follow button -->
 
-                <div class="container">
-                    <div class="row inline align-middle">
-                        <div class="col-md-6 align-items-center">
-                            <div class="row d-flex justify-content-start">
-                                <div class="test inline-block">
-                                    <img class='img-circle' style="height: 40px; width: auto; border-radius: 50%; padding-right: 10px" src="{% static "images/profile_picture.png" %}"/>
-                                </div>
-                                <div class="test inline-block">
-                                    <p>the_russian_spy_andrey</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="row d-flex justify-content-end">
-                                <h5><span class="badge badge-secondary post-button"><span class="fas fa-user-plus"></span> Follow</h5>
-                            </div>
-                        </div>
+                <div class="d-flex justify-content-between">
+                    <div class="test">
+                        <img class='img-circle' style="height: 40px; width: auto; border-radius: 50%; padding-right: 10px" src="{% static "images/profile_picture.png" %}"/>
+                        <span>the_russian_spy_andrey</span>
+                    </div>
+
+                    <div class="test">
+                        <h5><a href="#"><span class="badge badge-secondary post-button"><span class="fas fa-user-plus"></span> Follow</a></h5>
                     </div>
                 </div>
-
-
-
 
 
                 <!-- images -->
@@ -75,8 +63,8 @@
                         <!-- Description -->
                         <div class="row" style="padding-top: 15px">
                             <div class="col-md-12">
-                                <div class="card" style="border-radius: 10px; border: 0px">
-                                    <div class="card-body" style="padding: 8px; margin: 0px; background-color: #EEEEEE; color: #272727;">
+                                <div class="card" style="border: none">
+                                    <div class="card-body" style="padding: 10px; margin: 0px; border-radius: 10px; background-color: #EEEEEE; color: #272727;">
                                         <h5><span class="fas fa-sticky-note"></span> Notes from creator</h5>
                                         <p>Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem
                                             Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum
@@ -90,16 +78,16 @@
                         <!-- Some more parameters -->
                         <div class="row" style="padding-top: 15px">
                             <div class="col-md-6">
-                                <div class="card" style="border-radius: 10px; border: 0px">
-                                    <div class="card-body" style="padding: 8px; margin: 0px; background-color: #EEEEEE; color: #272727;">
+                                <div class="card" style="border: none">
+                                    <div class="card-body" style="border-radius: 10px; padding: 8px; margin: 0px; background-color: #EEEEEE; color: #272727;">
                                         <h5><span class="fas fa-clock"></span> Time to visit</h5>
-                                        <p>Always :)</p>
+                                        <span>Always :)</span>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-md-6">
-                                <div class="card" style="border-radius: 10px; border: 0px">
-                                    <div class="card-body" style="padding: 8px; background-color: #EEEEEE; color: #272727;">
+                                <div class="card" style="border: none">
+                                    <div class="card-body" style="border-radius: 10px; padding: 8px; background-color: #EEEEEE; color: #272727;">
                                         <h5><span class="fas fa-check-circle" style="color: #26DB87"></span> Verified Coodinates</h5>
                                     </div>
                                 </div>
