@@ -1,6 +1,5 @@
 from django.db import models
 
-
 # Create your models here.
 class User(models.Model):
     user_id = models.FloatField()  # randomly genrated byte
@@ -19,6 +18,6 @@ class User(models.Model):
     saved_posts = models.Empty()
     visited_posts = models.Empty()
 
-
 class Graph(models.Model):
-    id = models.FloatField()
+    # id = models.FloatField()
+    pass
