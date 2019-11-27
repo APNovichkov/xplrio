@@ -1,75 +1,63 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=`device-width`, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>XPLR.IO</title>
+{% extends 'registration/registrationbase.html' %}
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+{% block content %}
+<!-- IMAGE -->
+<div class="jumbotron text-center login-background-img" style="padding-top: 10px; padding-bottom: 0px; margin-bottom: 0px">
 
-    <link rel="stylesheet" href="/static/css/styles.css">
+    <div class="jumbotron-header" style="color: #FFFFFF">
+        <h1>Welcome to XPLR.IO</h1>
+        <p class="lead">We can't wait to show you the world!</p>
+        <!-- <p class="lead">The <b>Instagram/Yelp</b> for people who <b>Travel</b></p> -->
+    </div>
 
-    <script src="https://kit.fontawesome.com/735e24ebd7.js" crossorigin="anonymous"></script>
-</head>
-<body>
-    <!-- IMAGE -->
-    <div class="jumbotron text-center login-background-img" style="padding-top: 10px; padding-bottom: 0px; margin-bottom: 0px">
+    <div class="row" style="padding-top: 40px">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
 
-        <div class="jumbotron-header" style="color: #FFFFFF">
-            <h1>Welcome to XPLR.IO</h1>
-            <p class="lead">We can't wait to show you the world!</p>
-            <!-- <p class="lead">The <b>Instagram/Yelp</b> for people who <b>Travel</b></p> -->
-        </div>
+            {% if form.errors %}
+                <p>Your username and password didn't match. Please try again.</p>
+            {% endif %}
 
-        <div class="row" style="padding-top: 40px">
-            <div class="col-md-4"></div>
-            <div class="col-md-4">
-
-                {% if form.errors %}
-                    <p>Your username and password didn't match. Please try again.</p>
+            {% if next %}
+                {% if user.is_authenticated %}
+                    <p>Your account doesn't have access to this page. To proceed, please login with an account that has access.</p>
+                {% else %}
+                    <p>Please login to see this page.</p>
                 {% endif %}
-
-                {% if next %}
-                    {% if user.is_authenticated %}
-                        <p>Your account doesn't have access to this page. To proceed, please login with an account that has access.</p>
-                    {% else %}
-                        <p>Please login to see this page.</p>
-                    {% endif %}
-                {% endif %}
+            {% endif %}
 
 
-                <div class="d-flex justify-content-center">
-                    <form action="{% url 'login' %}" method='post'>
-                        {% csrf_token %}
-                        <div class="form-group row d-flex justify-content-center">
-                            <input class="form-control" type="text" name="username" id="id_username" style="background-color: transparent; color: #EEEEEE" placeholder="Username" required>
-                        </div>
-                        <div class="form-group row d-flex justify-content-center">
-                            <input class="form-control" type="password" name="password" id="id_password" style="background-color: transparent; color: #EEEEEE" placeholder="Password" required>
-                        </div>
-                        <div class="form-group row d-flex justify-content-center">
-                            <input type="hidden" name="next" value="{{ next }}">
-                            <input type="submit" value="Login" class="btn btn-dark mb-2" style="background-color: transparent; border-color: #EEEEEE; margin-right: 10px">
-                            <a href="/signup" class="btn btn-dark mb-2" style="background-color: transparent; border-color: #EEEEEE; margin-left: 10px">Sign Up</a>
-                        </div>
-                    </form>
-                </div>
-            </div>
-            <div class="col-md-4">
-
+            <div class="d-flex justify-content-center">
+                <form action="{% url 'login' %}" method='post'>
+                    {% csrf_token %}
+                    <div class="form-group row d-flex justify-content-center">
+                        <input class="form-control" type="text" name="username" id="id_username" style="background-color: transparent; color: #EEEEEE" placeholder="Username" required>
+                    </div>
+                    <div class="form-group row d-flex justify-content-center">
+                        <input class="form-control" type="password" name="password" id="id_password" style="background-color: transparent; color: #EEEEEE" placeholder="Password" required>
+                    </div>
+                    <div class="form-group row d-flex justify-content-center">
+                        <input type="hidden" name="next" value="{{ next }}">
+                        <input type="submit" value="Login" class="btn btn-dark mb-2" style="background-color: transparent; border-color: #EEEEEE; margin-right: 10px">
+                        <a href="/signup" class="btn btn-dark mb-2" style="background-color: transparent; border-color: #EEEEEE; margin-left: 10px">Sign Up</a>
+                    </div>
+                </form>
             </div>
         </div>
+        <div class="col-md-4">
 
-
-        <!-- FOOTER -->
-        <div style="position: absolute; left: 10px; bottom: 0px">
-            <nav class="navbar navbar-expand navbar-dark">
-                <div class="navbar-nav text-right">
-                    <a class="nav-item nav-link" href="/">Copyright xplr.io 2019 <span class="sr-only">(current)</span></a>
-                </div>
-            </nav>
         </div>
     </div>
-</body>
-</html>
+
+
+    <!-- FOOTER -->
+    <div style="position: absolute; left: 10px; bottom: 0px">
+        <nav class="navbar navbar-expand navbar-dark">
+            <div class="navbar-nav text-right">
+                <a class="nav-item nav-link" href="/">Copyright xplr.io 2019 <span class="sr-only">(current)</span></a>
+            </div>
+        </nav>
+    </div>
+</div>
+
+{% endblock %}

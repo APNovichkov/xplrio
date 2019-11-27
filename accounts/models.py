@@ -1,23 +1,24 @@
 from django.db import models
+from django.contrib.auth.models import User
+
+# FormWizard
+
 
 # Create your models here.
-class User(models.Model):
-    user_id = models.FloatField()  # randomly genrated byte
-    first_name = models.CharField(max_length=30)
-    last_name = models.CharField(max_length=30)
-    username = models.CharField(max_length=30, unique=True)
-    email = models.EmailField(unique=True)
-    photography_type = models.CharField(max_length=20)
-    risk_level = models.CharField(max_length=12)
-    profile_pic = models.ImageField()
-    recent_ip = models.GenericIPAddressField()
-    interest = models.Empty()
-    user_posts = models.Empty()
-    followers = models.Empty()
-    following = models.Empty()
-    saved_posts = models.Empty()
-    visited_posts = models.Empty()
+class UserProfile(User):
+    """Model that builds on Django's User Model."""
 
-class Graph(models.Model):
+    photography_type = models.CharField(max_length=500, default="", null=True)
+    risk_level = models.CharField(max_length=500, default="", null=True)
+    profile_pic = models.ImageField(max_length=500, default="", null=True)
+    recent_ip = models.GenericIPAddressField(max_length=500, default="27.0.0.0", null=True)
+#    interest = models.Empty()
+#    user_posts = models.Empty()
+#    followers = models.Empty()
+#    following = models.Empty()
+#    saved_posts = models.Empty()
+#    visited_posts = models.Empty()
+
+# class Graph(models.Model):
     # id = models.FloatField()
-    pass
+#    pass

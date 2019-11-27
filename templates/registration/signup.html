@@ -1,59 +1,46 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=`device-width`, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>XPLR.IO</title>
+{% extends 'registration/registrationbase.html' %}
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+{% block content %}
+<!-- IMAGE -->
+<div class="jumbotron text-center login-background-img" style="padding-top: 10px; padding-bottom: 0px; margin-bottom: 0px">
 
-    <link rel="stylesheet" href="/static/css/styles.css">
-
-    <script src="https://kit.fontawesome.com/735e24ebd7.js" crossorigin="anonymous"></script>
-</head>
-<body>
-    <!-- IMAGE -->
-    <div class="jumbotron text-center login-background-img" style="padding-top: 10px; padding-bottom: 0px; margin-bottom: 0px">
-
-        <div class="jumbotron-header" style="color: #FFFFFF">
-            <h1>Welcome to XPLR.IO</h1>
-            <p class="lead">Please create an account!</p>
-            <!-- <p class="lead">The <b>Instagram/Yelp</b> for people who <b>Travel</b></p> -->
-        </div>
-
-        <div class="row" style="padding-top: 40px">
-            <div class="col-md-4"></div>
-            <div class="col-md-4">
-                <div class="d-flex justify-content-center">
-                    <form method="post" class="mx-auto">
-                        {% csrf_token %}
-                        {% for field in form %}
-                            {% for error in field.errors %}
-                                <p class="text-danger">{{ error }}</p>
-                            {% endfor %}
-                            <div class="form-group row d-flex justify-content-center">
-                                <input class="form-control" type="{% if "password" in field.name %}password{% else %}text{% endif %}" name="{{ field.name }}" id="id_{{ field.name }}" placeholder="{{ field.label|title }}" style="background-color: transparent; color: #EEEEEE" required>
-                            </div>
-                        {% endfor %}
-
-                        <button type="submit" class="btn btn-dark mb-2" style="background-color: transparent; border-color: #EEEEEE; margin-top: 10px"">Sign up</button>
-
-                    </form>
-                </div>
-            </div>
-            <div class="col-md-4"></div>
-        </div>
-
-
-        <!-- FOOTER -->
-        <div style="position: absolute; left: 10px; bottom: 0px">
-            <nav class="navbar navbar-expand navbar-dark">
-                <div class="navbar-nav text-right">
-                    <a class="nav-item nav-link" href="/">Copyright xplr.io 2019 <span class="sr-only">(current)</span></a>
-                </div>
-            </nav>
-        </div>
+    <div class="jumbotron-header" style="color: #FFFFFF">
+        <h1>Welcome to XPLR.IO</h1>
+        <p class="lead">Please create an account!</p>
+        <!-- <p class="lead">The <b>Instagram/Yelp</b> for people who <b>Travel</b></p> -->
     </div>
-</body>
-</html>
+
+    <div class="row" style="padding-top: 40px">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            <div class="d-flex justify-content-center">
+                <form method="post" class="mx-auto">
+                    {% csrf_token %}
+                    {% for field in form %}
+                        {% for error in field.errors %}
+                            <p class="text-danger">{{ error }}</p>
+                        {% endfor %}
+                        <div class="form-group row d-flex justify-content-center">
+                            <input class="form-control" type="{% if "password" in field.name %}password{% else %}text{% endif %}" name="{{ field.name }}" id="id_{{ field.name }}" placeholder="{{ field.label|title }}" style="background-color: transparent; color: #EEEEEE" required>
+                        </div>
+                    {% endfor %}
+
+                    <button type="submit" class="btn btn-dark mb-2" style="background-color: transparent; border-color: #EEEEEE; margin-top: 10px">Sign up</button>
+                </form>
+            </div>
+        </div>
+        <div class="col-md-4"></div>
+    </div>
+
+
+    <!-- FOOTER -->
+    <div style="position: absolute; left: 10px; bottom: 0px">
+        <nav class="navbar navbar-expand navbar-dark">
+            <div class="navbar-nav text-right">
+                <a class="nav-item nav-link" href="/">Copyright xplr.io 2019 <span class="sr-only">(current)</span></a>
+            </div>
+        </nav>
+    </div>
+</div>
+
+{% endblock %}

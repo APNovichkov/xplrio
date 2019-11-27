@@ -82,13 +82,22 @@ WSGI_APPLICATION = 'xplrio.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'postgres',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'xplrio',
         'USER': '',
         'PASSWORD': '',
         'HOST': 'localhost',
-        'PORT': '',
+        'PORT': '5432',
     }
+
+    # 'default': {
+    #    'ENGINE': 'django.db.backends.postgresql_psycopg2',
+    #    'NAME': 'postgres',
+    #    'USER': '',
+    #    'PASSWORD': '',
+    #    'HOST': 'localhost',
+    #    'PORT': '',
+    # }
 }
 
 
@@ -125,8 +134,8 @@ USE_L10N = True
 USE_TZ = True
 
 
-LOGIN_REDIRECT_URL = "/"
-LOGOUT_REDIRECT_URL = "/accounts/login"
+LOGIN_REDIRECT_URL = "/welcome"
+LOGOUT_REDIRECT_URL = "/login"
 
 
 # Static files (CSS, JavaScript, Images)
