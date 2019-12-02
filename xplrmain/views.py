@@ -17,7 +17,11 @@ class ShowFeedView(View):
 
         posts = UserPost.objects.all()
 
-        return render(request, 'xplrmain/feed.html', {'posts': posts})
+        context = {
+            'posts': posts
+        }
+
+        return render(request, 'xplrmain/feed.html', context)
 
     def post(self, request):
         pass

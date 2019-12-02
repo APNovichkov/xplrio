@@ -15,10 +15,13 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 </head>
 <body>
-    {% include 'partials/navbar2.html' %}
+    <div style="position: relative; min-height: 100vh;">
+        {% include 'partials/navbar2.html' %}
 
-    {% block content %} {% endblock %}
+        {% block content %} {% endblock %}
 
-    {% include 'partials/footer.html' %}
+        {% include 'partials/footer.html' %}
+    </div>
+
 </body>
 </html>
