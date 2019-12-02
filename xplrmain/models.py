@@ -1,12 +1,15 @@
 from django.db import models
+from django.contrib.auth.models import User
 from accounts.models import UserProfile
 
 # Create your models here.
 class UserPost(models.Model):
-    user_id = models.ForeignKey(UserProfile, on_delete=models.CASCADE)  # Many to One relationship
+    user_id = models.ForeignKey(User, on_delete=models.CASCADE, null=True)  # Many to One relationship
     go = models.ManyToManyField('UserGoPost')
     visited = models.ManyToManyField('UserVisitedPost')
     saved = models.ManyToManyField('UserSavedPost')
+
+    # picture = models.ImageField(max_length=500, default="", null=True)
 
     # Might want to change these to something else. Difficulty is just choosing from 3/4 available
     # premade values...

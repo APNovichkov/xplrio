@@ -84,8 +84,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'xplrio',
-        'USER': '',
-        'PASSWORD': '',
+        'USER': 'andreynovichkov',
+        'PASSWORD': '1998Moscow',
         'HOST': 'localhost',
         'PORT': '5432',
     }
@@ -134,8 +134,10 @@ USE_L10N = True
 USE_TZ = True
 
 
-LOGIN_REDIRECT_URL = "/welcome"
+LOGIN_REDIRECT_URL = "/"
 LOGOUT_REDIRECT_URL = "/login"
+
+
 
 
 # Static files (CSS, JavaScript, Images)
