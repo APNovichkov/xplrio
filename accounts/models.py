@@ -5,8 +5,14 @@ from django.contrib.auth.models import User
 
 
 # Create your models here.
-class UserProfile(User):
+class UserProfile(models.Model):
     """Model that builds on Django's User Model."""
+
+    user = models.ForeignKey(User, default=1, on_delete=models.CASCADE)
+
+    first_name = models.CharField(default="", max_length=32, help_text='First name')
+    last_name = models.CharField(default="", max_length=32, help_text='Last name')
+    email = models.EmailField(default="", max_length=64, help_text='Enter a valid email address')
 
     photography_type = models.CharField(max_length=500, default="", null=True)
     risk_level = models.CharField(max_length=500, default="", null=True)

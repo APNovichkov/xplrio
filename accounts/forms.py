@@ -1,6 +1,9 @@
 from django import forms
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User
 
 from .models import UserProfile
+
 
 class UserProfileForm(forms.ModelForm):
     """Form for UserProfile."""
@@ -9,4 +12,4 @@ class UserProfileForm(forms.ModelForm):
         """Metadata about this form."""
 
         model = UserProfile
-        fields = ('photography_type', 'risk_level')
+        fields = ('first_name', 'last_name', 'email', 'photography_type', 'risk_level')

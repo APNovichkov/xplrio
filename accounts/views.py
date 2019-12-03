@@ -3,10 +3,11 @@ from django.urls import reverse_lazy
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User
 
 from accounts.models import UserProfile
 
-from .forms import UserProfileForm
+from accounts.forms import UserProfileForm
 
 
 # Create your views here.
@@ -25,6 +26,7 @@ class WelcomeView(CreateView):
 
         if form.is_valid():
             user_profile = form.save(commit=False)
+            user_profile.user = request.user
             user_profile.save()
 
             return HttpResponseRedirect(reverse_lazy('feed-page'))

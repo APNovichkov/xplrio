@@ -21,7 +21,11 @@
                             <p class="text-danger">{{ error }}</p>
                         {% endfor %}
                         <div class="form-group row d-flex justify-content-center">
-                            <input class="form-control" type="{% if "password" in field.name %}password{% else %}text{% endif %}" name="{{ field.name }}" id="id_{{ field.name }}" placeholder="{{ field.label|title }}" style="background-color: transparent; color: #EEEEEE" required>
+                            {% if 'password' in field.name %}
+                                <input class="form-control" type="password" name="{{ field.name }}" placeholder="{{ field.label|title }}" style="background-color: transparent; color: #EEEEEE" required>
+                            {% else %}
+                                <input class="form-control" type="text" name="{{ field.name }}" id="id_{{ field.name }}" placeholder="{{ field.label|title }}" style="background-color: transparent; color: #EEEEEE" required>
+                            {% endif %}
                         </div>
                     {% endfor %}
 

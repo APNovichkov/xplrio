@@ -21,17 +21,17 @@
                         {% endfor %}
 
                         <div class="form-group row d-flex justify-content-center align-items-center">
-                            {% if "photography" in field.name %}
-                                <input class="form-control" type="text" name="{{ field.name }}" id="id_{{ field.name }}" placeholder="{{ field.label|title }}" style="background-color: transparent; color: #EEEEEE">
-                            {% elif "risk" in field.name %}
-                                <input class="form-control" type="text" name="{{ field.name }}" id="id_{{ field.name }}" placeholder="{{ field.label|title }}" style="background-color: transparent; color: #EEEEEE">
-                            {% else %}
+                            {% if 'profile_pic' in field.name %}
                                 <label class="btn btn-dark" style="border-color: #EEEEEE; background-color: transparent" for="my-file-selector">
                                     <input id="my-file-selector" type="file" name="{{ field.name }}" style="display:none"
                                     onchange="$('#upload-file-info').html(this.files[0].name)">
                                     Upload Profile Picture
                                 </label>
                                 <span class='label label-info' style="color: #EEEEEE; padding-left: 15px; padding-bottom: 10px" id="upload-file-info"></span>
+                            {% elif "email" in field.name %}
+                                <input class="form-control" type="email" name="{{ field.name }}" id="id_{{ field.name }}" placeholder="{{ field.label|title }}" style="background-color: transparent; color: #EEEEEE">
+                            {% else %}
+                                <input class="form-control" type="text" name="{{ field.name }}" id="id_{{ field.name }}" placeholder="{{ field.label|title }}" style="background-color: transparent; color: #EEEEEE">
                             {% endif %}
                         </div>
                     {% endfor %}

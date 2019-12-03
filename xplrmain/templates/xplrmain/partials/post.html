@@ -87,7 +87,11 @@
                             <div class="col-md-6" style="padding-top: 15px">
                                 <div class="card" style="border: none">
                                     <div class="card-body" style="border-radius: 10px; padding: 8px; background-color: #EEEEEE; color: #272727;">
-                                        <h5><span class="fas fa-check-circle" style="color: #26DB87"></span> Verified Coodinates</h5>
+                                        {% if post.verified %}
+                                            <h5><span class="fas fa-check-circle" style="color: #26DB87"></span> Verified Coodinates</h5>
+                                        {% else %}
+                                            <h5><span class="fas fa-times" style="color: #B80F0A"></span> Coodinates Not Verified</h5>
+                                        {% endif %}
                                     </div>
                                 </div>
                             </div>
