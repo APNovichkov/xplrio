@@ -22,7 +22,7 @@ class WelcomeView(CreateView):
         return render(request, 'registration/welcome.html', context)
 
     def post(self, request):
-        form = UserProfileForm(request.POST)
+        form = UserProfileForm(request.POST, request.FILES)
 
         if form.is_valid():
             user_profile = form.save(commit=False)
@@ -30,5 +30,7 @@ class WelcomeView(CreateView):
             user_profile.save()
 
             return HttpResponseRedirect(reverse_lazy('feed-page'))
+        else:
+            print("Image Upload: {}".format(request.POST['profile_pic']))
 
         return render(request, 'registration/welcome.html', {'form': form})

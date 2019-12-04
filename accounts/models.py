@@ -16,7 +16,7 @@ class UserProfile(models.Model):
 
     photography_type = models.CharField(max_length=500, default="", null=True)
     risk_level = models.CharField(max_length=500, default="", null=True)
-    profile_pic = models.ImageField(max_length=500, default="", null=True)
+    profile_pic = models.ImageField(upload_to="media/profile_pics", max_length=500, default="", null=True)
     recent_ip = models.GenericIPAddressField(max_length=500, default="27.0.0.0", null=True)
 #    interest = models.Empty()
 #    user_posts = models.Empty()
