@@ -9,6 +9,15 @@ class UserPost(models.Model):
     visited = models.ManyToManyField('UserVisitedPost')
     saved = models.ManyToManyField('UserSavedPost')
 
+    def get_go_users(self):
+        pass
+
+    def get_visited_users(self):
+        pass
+
+    def get_saved_users(self):
+        pass
+
     # picture = models.ImageField(max_length=500, default="", null=True)
 
     # Might want to change these to something else. Difficulty is just choosing from 3/4 available
@@ -21,13 +30,13 @@ class UserPost(models.Model):
     verified = models.BooleanField(max_length=100, default=False, null=True)
 
 class UserGoPost(models.Model):
-    user_id = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
-    post_id = models.ForeignKey(UserPost, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, default=1, on_delete=models.CASCADE)
+    post = models.ForeignKey(UserPost, default=1, on_delete=models.CASCADE)
 
 class UserVisitedPost(models.Model):
-    user_id = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
-    post_id = models.ForeignKey(UserPost, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, default=1, on_delete=models.CASCADE)
+    post = models.ForeignKey(UserPost, default=1, on_delete=models.CASCADE)
 
 class UserSavedPost(models.Model):
-    user_id = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
-    post_id = models.ForeignKey(UserPost, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, default=1, on_delete=models.CASCADE)
+    post = models.ForeignKey(UserPost, default=1, on_delete=models.CASCADE)
