@@ -2,11 +2,13 @@ from django.shortcuts import render
 from django.views import View
 from django.http import HttpResponseRedirect
 from django.urls import reverse_lazy
+from django.contrib.auth.models import User
 # from django.http import HttpResponseRedirect
 # from django.utils import timezone
 
-from django.contrib.auth.models import User
+
 from xplrmain.models import UserPost
+from accounts.models import UserProfile, UserToUserFriendship
 from xplrmain.forms import UserPostForm
 
 # Create your views here.
@@ -45,3 +47,12 @@ class CreatePostView(View):
             return HttpResponseRedirect(reverse_lazy('feed-page'))
 
         return render(request, 'xplrmain/newpost.html', {'form': form})
+
+
+def follow(request):
+    if request.method == POST:
+        friendship_creator = request.user
+        friend = UserProfile.objects.get(id=request.POST['user_id'])
+
+        new_friendship = UserToUserFriendship(creator=friendship_creator, friend=friend)
+        new_friendship.save()

@@ -18,8 +18,12 @@ class SignUpView(CreateView):
 
 class WelcomeView(CreateView):
     def get(self, request):
-        context = {'form': UserProfileForm}
-        return render(request, 'registration/welcome.html', context)
+
+        if UserProfile.objects.filter(user=request.user).count() == 0:
+            context = {'form': UserProfileForm}
+            return render(request, 'registration/welcome.html', context)
+
+        return HttpResponseRedirect(reverse_lazy('feed-page'))
 
     def post(self, request):
         form = UserProfileForm(request.POST, request.FILES)
