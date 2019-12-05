@@ -14,26 +14,32 @@
                     </div>
 
                     <div class="test">
-                        <h5><a href="#"><span class="badge badge-secondary follow-button"><span class="fas fa-user-plus"></span> Follow</a></h5>
+                        <form action="{% url 'xplrmain:follow-interaction'%}" method="POST">
+                            {% csrf_token %}
+                            <input type="hidden" name="post_user_id" value="{{ post.user.id }}">
+                            <button type="submit" class="btn btn-success"><span class="fas fa-user-plus"></span> Follow</button>
+                        </form>
                     </div>
                 </div>
 
 
             </div>
         </div>
-        <!-- images -->
+
+        <!-- Images -->
         <div class="row d-flex justify-content-center" style="padding-top: 15px; padding-bottom: 15px; margin-left: -1.25rem; margin-right: -1.25rem">
             <div class="test">
                 <img style="width: 100%; height: auto"  src="{% static "images/sample_post_1.jpg" %}" alt="">
             </div>
-
         </div>
+
+        <!-- Image Parameters -->
         <div class="row">
             <div class="col-md-12">
-                <!-- Image Parameters -->
                 <div class="row" style="padding-top: 15px">
                     <div class="col-md-12">
-                        <!-- First Row -->
+
+                        <!-- Image Interaction and Coordinates -->
                         <div class="row" style="padding-left: 13px; padding-right: 8px">
                             <div class="col-md-8">
                                 <div class="row d-flex justify-content-between">
@@ -71,7 +77,6 @@
                                     </div>
                                 </div>
                             </div>
-
                         </div>
 
                         <!-- Some more parameters -->

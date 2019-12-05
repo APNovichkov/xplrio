@@ -23,7 +23,7 @@ class WelcomeView(CreateView):
             context = {'form': UserProfileForm}
             return render(request, 'registration/welcome.html', context)
 
-        return HttpResponseRedirect(reverse_lazy('feed-page'))
+        return HttpResponseRedirect(reverse_lazy('xplrmain:feed-page'))
 
     def post(self, request):
         form = UserProfileForm(request.POST, request.FILES)
@@ -33,7 +33,7 @@ class WelcomeView(CreateView):
             user_profile.user = request.user
             user_profile.save()
 
-            return HttpResponseRedirect(reverse_lazy('feed-page'))
+            return HttpResponseRedirect(reverse_lazy('xplrmain:feed-page'))
         else:
             print("Image Upload: {}".format(request.POST['profile_pic']))
 

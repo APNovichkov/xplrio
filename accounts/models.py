@@ -44,7 +44,7 @@ class UserToUserFriendship(models.Model):
     creator = models.ForeignKey(User, related_name="friendship_creator", default=1, on_delete=models.CASCADE)
 
     # User who "user" followed
-    following = models.ForeignKey(User, related_name="friend", default=2, on_delete=models.CASCADE)
+    friend = models.ForeignKey(User, related_name="friend", default=2, on_delete=models.CASCADE)
 
 
 # class Graph(models.Model):
