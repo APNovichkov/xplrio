@@ -40,9 +40,12 @@ class CreatePostView(View):
             print("Form is valid")
             user_post = form.save(commit=False)
             user_post.user = request.user
+            user_post.username = request.user.username
+
             #user_post.go.set(None)
             #user_post.visited = None
             #user_post.saved = None
+
             user_post.save()
             return HttpResponseRedirect(reverse_lazy('feed-page'))
 

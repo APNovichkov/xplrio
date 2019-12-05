@@ -10,19 +10,20 @@
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 
-    <link rel="stylesheet" href="href='{% static "/static/css/styles.css" %}">
-    <link rel="stylesheet" href="/xplrmain/static/css/styles.css">
+    <link rel="stylesheet" href="href='{% static "css/styles.css" %}">
 
     <script src="https://kit.fontawesome.com/735e24ebd7.js" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 </head>
 <body>
     <div style="position: relative; min-height: 100vh;">
-        {% include 'partials/navbar2.html' %}
-
-        {% block content %} {% endblock %}
-
-        {% include 'partials/footer.html' %}
+        {% if user.is_authenticated %}
+            {% include 'partials/navbar2.html' %}
+            {% block content %} {% endblock %}
+            {% include 'partials/footer.html' %}
+        {% else %}
+            <h1> You are not an authenticated user </h1>
+        {% endif %}
     </div>
 
 </body>

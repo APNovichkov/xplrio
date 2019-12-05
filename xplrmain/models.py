@@ -5,6 +5,7 @@ from accounts.models import UserProfile
 # Create your models here.
 class UserPost(models.Model):
     user = models.ForeignKey(User, default=1, on_delete=models.CASCADE)  # Many to One relationship
+    username = models.CharField(max_length=100, default="default_username", null=True)
     go = models.ManyToManyField('UserGoPost')
     visited = models.ManyToManyField('UserVisitedPost')
     saved = models.ManyToManyField('UserSavedPost')
