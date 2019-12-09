@@ -81,7 +81,7 @@ WSGI_APPLICATION = 'xplrio.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
-DATABASE_URL = "ec2-174-129-254-223.compute-1.amazonaws.com"
+DATABASE_URL = "postgres://polkuykopmavok:e798dcbfcd8401aa83173b0d7dd5041eef062053e48eec07838b05f7541aa4a9@ec2-174-129-254-223.compute-1.amazonaws.com:5432/desv3bqr7a10g8"
 
 DATABASES = {
     'default': {
