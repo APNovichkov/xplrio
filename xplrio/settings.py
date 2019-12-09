@@ -13,10 +13,15 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 import os
 import psycopg2
 import django_heroku
+import dj_database_url
+import dotenv
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+dotenv_file = os.path.join(BASE_DIR, ".env")
+if os.path.isfile(dotenv_file):
+    dotenv.load_dotenv(dotenv_file)
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
@@ -27,7 +32,7 @@ SECRET_KEY = '!4bd!es$ydu4ftz8fpxe_-ss#$4ti!ok49r6txl+2*eg(r-1-z'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', 'xplr-io.herokuapp.com']
+ALLOWED_HOSTS = ['127.0.0.1', 'xplr-io.herokuapp.com']
 
 # Application definition
 
@@ -50,6 +55,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'xplrio.urls'
@@ -81,27 +87,28 @@ WSGI_APPLICATION = 'xplrio.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
-DATABASE_URL = "postgres://polkuykopmavok:e798dcbfcd8401aa83173b0d7dd5041eef062053e48eec07838b05f7541aa4a9@ec2-174-129-254-223.compute-1.amazonaws.com:5432/desv3bqr7a10g8"
+DATABASES = {}
+DATABASES['default'] = dj_database_url.config(conn_max_age=600)
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'xplrio',
-        'USER': 'andreynovichkov',
-        'PASSWORD': '1998Moscow',
-        'HOST': '127.0.0.1',
-        'PORT': '5432',
-    }
-
-    # 'default': {
-    #    'ENGINE': 'django.db.backends.postgresql_psycopg2',
-    #    'NAME': 'postgres',
-    #    'USER': '',
-    #    'PASSWORD': '',
-    #    'HOST': 'localhost',
-    #    'PORT': '',
-    # }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'xplrio',
+#         'USER': 'andreynovichkov',
+#         'PASSWORD': '1998Moscow',
+#         'HOST': '127.0.0.1',
+#         'PORT': '5432',
+#     }
+#
+#     # 'default': {
+#     #    'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#     #    'NAME': 'postgres',
+#     #    'USER': '',
+#     #    'PASSWORD': '',
+#     #    'HOST': 'localhost',
+#     #    'PORT': '',
+#     # }
+# }
 
 
 # Password validation
@@ -144,8 +151,9 @@ LOGOUT_REDIRECT_URL = "/login"
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
+# STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
@@ -154,4 +162,4 @@ STATICFILES_DIRS = [
 
 
 # Activate django heroku
-django_heroku.settings(locals())
+# django_heroku.settings(locals())
