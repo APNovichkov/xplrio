@@ -26,8 +26,7 @@ SECRET_KEY = '!4bd!es$ydu4ftz8fpxe_-ss#$4ti!ok49r6txl+2*eg(r-1-z'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = ['localhost', 'xplr-io.herokuapp.com']
 
 # Application definition
 
@@ -141,6 +140,8 @@ LOGOUT_REDIRECT_URL = "/login"
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
+
+STATIC_ROOT = os.path.join(BASE_DIR, ‘static')
 
 STATIC_URL = '/static/'
 

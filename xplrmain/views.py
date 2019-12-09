@@ -17,9 +17,11 @@ class ShowFeedView(View):
     def get(self, request):
         """Return list of All(for now) UserPosts."""
 
-        user_profile = UserProfile.objects.get(user=request.user)
+        # user_profile = UserProfile.objects.get(user=request.user)
 
-        posts = UserPost.objects.filter(user__in=user_profile.get_following())
+        # posts = UserPost.objects.filter(user__in=user_profile.get_following())
+
+        posts = UserPost.objects.all()
 
         context = {
             'posts': posts
