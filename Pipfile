@@ -12,6 +12,7 @@ psycopg2 = "<2.8"
 psycopg2-binary = "*"
 pillow = "*"
 gunicorn = "*"
+django-heroku = "*"
 
 [requires]
 python_version = "3.7"
