@@ -37,6 +37,7 @@ ALLOWED_HOSTS = ['127.0.0.1', 'xplr-io.herokuapp.com']
 # Application definition
 
 INSTALLED_APPS = [
+    'rest_framework',
     'accounts',
     'xplrmain',
     'django.contrib.admin',

@@ -10,6 +10,9 @@ urlpatterns = [
     # Admin
     path('admin/', admin.site.urls),
 
+    # Serializers
+    path('api/', include('api.urls')),
+
     # xplrio App
     path('', include('xplrmain.urls')),
     path('', include('accounts.urls')),
