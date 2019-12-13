@@ -32,13 +32,14 @@ class ShowFeedView(View):
     def get(self, request):
         """Return list of All(for now) UserPosts."""
 
-        user_profile = UserProfile.objects.get(user=request.user)
-        print("Current user profile: {} {} with user_id: {}".format(user_profile.first_name, user_profile.last_name, user_profile.user_id))
+        # user_profile = UserProfile.objects.get(user=request.user)
+        # print("Current user profile: {} {} with user_id: {}".format(user_profile.first_name, user_profile.last_name, user_profile.user_id))
 
-        following = [u.friend for u in user_profile.get_following()]
-        print("Following id's: {}".format(following))
+        #following = [u.friend for u in user_profile.get_following()]
+        #print("Following id's: {}".format(following))
 
-        posts = UserPost.objects.filter(user__in=following)
+        # posts = UserPost.objects.filter(user__in=following)
+        posts = UserPost.objects.all()
 
         context = {
             'posts': posts
@@ -91,7 +92,7 @@ def follow(request):
 
 def unfollow(request):
     """Manages unfollow functionality."""
-    
+
     if request.method == 'POST':
         friendship_creator = request.user
         friend = User.objects.get(id=request.POST['post_user_id'])

@@ -13,7 +13,7 @@
         <div class="col-md-2"></div>
         <div class="col-md-8">
             <div class="d-flex justify-content-center">
-                <form action="{% url 'welcome-page' %}" method="post" enctype="multipart/form-data" class="mx-auto md-form">
+                <form action="{% url 'accounts:welcome-page' %}" method="post" enctype="multipart/form-data" class="mx-auto md-form">
                     {% csrf_token %}
                     {% for field in form %}
                         {% for error in field.errors %}
