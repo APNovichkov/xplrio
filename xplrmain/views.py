@@ -10,10 +10,25 @@ from django.contrib.auth.models import User
 from xplrmain.models import UserPost
 from accounts.models import UserProfile, UserToUserFriendship
 from xplrmain.forms import UserPostForm
+from django.contrib.auth.decorators import login_required
 
-# Create your views here.
 
+def redirect_from_home(request):
+    """Redirects to login if user not authenticated, otherwise shows feed."""
+    if request.user is None:
+        print("Request.user is none")
+    else:
+        print("Request.user is not none")
+        if request.user.is_authenticated:
+            return HttpResponseRedirect(reverse_lazy('xplrmain:feed-page'))
+
+    return HttpResponseRedirect('login')
+
+
+# @login_required(login_url="/login")
 class ShowFeedView(View):
+    """Shows the feed to the current user."""
+
     def get(self, request):
         """Return list of All(for now) UserPosts."""
 
@@ -35,6 +50,8 @@ class ShowFeedView(View):
         pass
 
 class CreatePostView(View):
+    """Manages get and post requests for creating a new post."""
+
     def get(self, request):
         context = {'form': UserPostForm}
         return render(request, 'xplrmain/newpost.html', context)
@@ -59,6 +76,8 @@ class CreatePostView(View):
 
 
 def follow(request):
+    """Manages follow functionality."""
+
     if request.method == 'POST':
         friendship_creator = request.user
         friend = User.objects.get(id=request.POST['post_user_id'])
@@ -71,6 +90,8 @@ def follow(request):
         return HttpResponseRedirect(reverse_lazy('xplrmain:feed-page'))
 
 def unfollow(request):
+    """Manages unfollow functionality."""
+    
     if request.method == 'POST':
         friendship_creator = request.user
         friend = User.objects.get(id=request.POST['post_user_id'])
