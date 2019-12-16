@@ -7,7 +7,7 @@ from django.contrib.auth.models import User
 # from django.utils import timezone
 
 
-from xplrmain.models import UserPost
+from xplrmain.models import UserPost, UserGoPost
 from accounts.models import UserProfile, UserToUserFriendship
 from xplrmain.forms import UserPostForm
 from django.contrib.auth.decorators import login_required
@@ -66,11 +66,12 @@ class CreatePostView(View):
             user_post.user = request.user
             user_post.username = request.user.username
 
-            #user_post.go.set(None)
-            #user_post.visited = None
-            #user_post.saved = None
-
             user_post.save()
+
+            # user_post.go.set(request.user.id)
+            # user_post.visited = None
+            # user_post.saved = None
+
             return HttpResponseRedirect(reverse_lazy('xplrmain:feed-page'))
 
         return render(request, 'xplrmain/newpost.html', {'form': form})
@@ -87,6 +88,34 @@ def follow(request):
         new_friendship.save()
 
         print("Saved new friendship between {} and {}".format(friendship_creator.username, friend.username))
+
+        return HttpResponseRedirect(reverse_lazy('xplrmain:feed-page'))
+
+def go(request):
+    """Manages go functionality."""
+
+    if request.method == 'POST':
+        go_creator = request.user
+        post = UserPost.objects.get(id=request.POST['post_id'])
+
+        new_go_relationship = UserGoPost(user=go_creator, post=post)
+        new_go_relationship.save()
+
+        print("Created new go relationship between user: {} and post by user: {}".format(go_creator.username, post.username))
+
+        return HttpResponseRedirect(reverse_lazy('xplrmain:feed-page'))
+
+def visited(request):
+    """Manages visited functionality."""
+
+    if request.method == 'POST':
+        go_creator = request.user
+        post = UserPost.objects.get(id=request.POST['post_id'])
+
+        new_visited_relationship = UserGoPost(user=go_creator, post=post)
+        new_go_relationship.save()
+
+        print("Created new go relationship between user: {} and post by user: {}".format(go_creator.username, post.username))
 
         return HttpResponseRedirect(reverse_lazy('xplrmain:feed-page'))
 
