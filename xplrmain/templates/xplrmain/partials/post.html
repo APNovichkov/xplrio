@@ -48,7 +48,7 @@
                                             <form action="{% url 'xplrmain:go-interaction'%}" method="POST">
                                                 {% csrf_token %}
                                                 <input type="hidden" name="post_id" value="{{ post.id }}">
-                                                <h5><span class="badge badge-secondary post-button"><button type="submit" style="background-color: transparent"><span class="fas fa-car"></span>Go</button></span></h5>
+                                                <button type="submit" class="go-button"><h5><span class="badge badge-secondary post-button"><span class="fas fa-car"></span>Go</span></h5></button>
                                             </form>
                                         </div>
 
@@ -57,7 +57,7 @@
                                         <form action="{% url 'xplrmain:visited-interaction'%}" method="POST">
                                             {% csrf_token %}
                                             <input type="hidden" name="post_id" value="{{ post.id }}">
-                                            <h5><span class="badge badge-secondary post-button"><button type="submit" style="background-color: transparent"><span class="fas fa-map"></span> Visited</button></span></h5>
+                                            <button type="submit" class="visited-button"><h5><span class="badge badge-secondary post-button"><span class="fas fa-map"></span> Visited</span></h5></button>
                                         </form>
                                     </div>
                                     <div class="test">
@@ -75,7 +75,7 @@
                                         <form action="{% url 'xplrmain:save-interaction'%}" method="POST">
                                             {% csrf_token %}
                                             <input type="hidden" name="post_id" value="{{ post.id }}">
-                                            <h5><span class="badge badge-secondary post-button"><button type="submit" style="background-color: transparent"><span class="fas fa-bookmark"></span> Save</button></span></h5>
+                                            <button type="submit" class="save-button"><h5><span class="badge badge-secondary post-button"><span class="fas fa-bookmark"></span> Save</span></h5></button>
                                         </form>
                                     </div>
                                 </div>

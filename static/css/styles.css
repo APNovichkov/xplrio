@@ -20,6 +20,21 @@
   opacity: 0.9; /* Tone the image down further by giving it transparency */
 }
 
+.go-button{
+    background-color: transparent;
+    border: None;
+}
+
+.visited-button{
+    background-color: transparent;
+    border: None;
+}
+
+.save-button{
+    background-color: transparent;
+    border: None;
+}
+
 .jumbotron{
     height: 100vh;
 }
