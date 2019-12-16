@@ -7,7 +7,7 @@ from django.contrib.auth.models import User
 # from django.utils import timezone
 
 
-from xplrmain.models import UserPost, UserGoPost
+from xplrmain.models import UserPost, UserGoPost, UserVisitedPost, UserSavedPost
 from accounts.models import UserProfile, UserToUserFriendship
 from xplrmain.forms import UserPostForm
 from django.contrib.auth.decorators import login_required
@@ -112,10 +112,24 @@ def visited(request):
         go_creator = request.user
         post = UserPost.objects.get(id=request.POST['post_id'])
 
-        new_visited_relationship = UserGoPost(user=go_creator, post=post)
-        new_go_relationship.save()
+        new_visited_relationship = UserVisitedPost(user=go_creator, post=post)
+        new_visited_relationship.save()
 
-        print("Created new go relationship between user: {} and post by user: {}".format(go_creator.username, post.username))
+        print("Created new visited relationship between user: {} and post by user: {}".format(go_creator.username, post.username))
+
+        return HttpResponseRedirect(reverse_lazy('xplrmain:feed-page'))
+
+def save(request):
+    """Manages save functionality."""
+
+    if request.method == 'POST':
+        go_creator = request.user
+        post = UserPost.objects.get(id=request.POST['post_id'])
+
+        new_save_relationship = UserSavedPost(user=go_creator, post=post)
+        new_save_relationship.save()
+
+        print("Created new save relationship between user: {} and post by user: {}".format(go_creator.username, post.username))
 
         return HttpResponseRedirect(reverse_lazy('xplrmain:feed-page'))
 

@@ -9,5 +9,7 @@ urlpatterns = [
     path('feed/', ShowFeedView.as_view(), name="feed-page"),
     path('interaction/follow/', views.follow, name="follow-interaction"),
     path('interaction/go', views.go, name='go-interaction'),
+    path('interaction/visited', views.visited, name='visited-interaction'),
+    path('interaction/save', views.save, name='save-interaction'),
     path('newpost/', CreatePostView.as_view(), name="newpost-page")
 ]

@@ -54,7 +54,11 @@
 
                                     </div>
                                     <div class="test">
-                                        <h5><span class="badge badge-secondary post-button"><span class="fas fa-map"></span> Visited</h5>
+                                        <form action="{% url 'xplrmain:visited-interaction'%}" method="POST">
+                                            {% csrf_token %}
+                                            <input type="hidden" name="post_id" value="{{ post.id }}">
+                                            <h5><span class="badge badge-secondary post-button"><button type="submit" style="background-color: transparent"><span class="fas fa-map"></span> Visited</button></span></h5>
+                                        </form>
                                     </div>
                                     <div class="test">
                                         <h5><span class="badge badge-secondary post-button"><span class="fas fa-map-pin"></span> {{ post.coordinates }}</h5>
@@ -68,7 +72,11 @@
                             <div class="col-md-2">
                                 <div class="row d-flex justify-content-end">
                                     <div class="test">
-                                        <h5><span class="badge badge-secondary post-button"><span class="fas fa-bookmark"></span> Save</h5>
+                                        <form action="{% url 'xplrmain:save-interaction'%}" method="POST">
+                                            {% csrf_token %}
+                                            <input type="hidden" name="post_id" value="{{ post.id }}">
+                                            <h5><span class="badge badge-secondary post-button"><button type="submit" style="background-color: transparent"><span class="fas fa-bookmark"></span> Save</button></span></h5>
+                                        </form>
                                     </div>
                                 </div>
                             </div>
