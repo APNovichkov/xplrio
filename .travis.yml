@@ -4,7 +4,7 @@ python:
 services:
   - postgresql
 before_script:
-  - psql -c 'create database xplrio;'
+  - psql -c 'create database xplrio; -U andreynovichkov -P 1998Moscow
   - python manage.py migrate
 install:
   - pip install -r requirements.txt
