@@ -28,9 +28,9 @@ class AccountsUserProfileTest(TestCase):
 
         self.assertEqual(get_user_profile.first_name, 'Andrey')
 
-class AccountsTestAuthentication(TestCase):
-    def test_login_page(self):
-        response = self.client.get("/login/")
-
-        self.assertEqual(response.status_code, 200)
-        self.assertIn("username", str(response.context['form']))
+# class AccountsTestAuthentication(TestCase):
+#     def test_login_page(self):
+#         response = self.client.get("/login/")
+#
+#         self.assertEqual(response.status_code, 200)
+#         self.assertIn("username", str(response.context['form']))

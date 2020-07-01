@@ -39,7 +39,7 @@
                     <div class="form-group row d-flex justify-content-center">
                         <input type="hidden" name="next" value="{{ next }}">
                         <input type="submit" value="Login" class="btn btn-dark mb-2" style="background-color: transparent; border-color: #EEEEEE; margin-right: 10px">
-                        <a href="/signup" class="btn btn-dark mb-2" style="background-color: transparent; border-color: #EEEEEE; margin-left: 10px">Sign Up</a>
+                        <a href="{% url 'accounts:signup' %}" class="btn btn-dark mb-2" style="background-color: transparent; border-color: #EEEEEE; margin-left: 10px">Sign Up</a>
                     </div>
                 </form>
             </div>

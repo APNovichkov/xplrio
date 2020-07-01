@@ -35,14 +35,16 @@ class ShowFeedView(View):
         # user_profile = UserProfile.objects.get(user=request.user)
         # print("Current user profile: {} {} with user_id: {}".format(user_profile.first_name, user_profile.last_name, user_profile.user_id))
 
-        #following = [u.friend for u in user_profile.get_following()]
-        #print("Following id's: {}".format(following))
+        # following = [u.friend for u in user_profile.get_following()]
+        # print("Following id's: {}".format(following))
 
         # posts = UserPost.objects.filter(user__in=following)
         posts = UserPost.objects.all()
+        # user = UserProfile.objects.get(user=request.user)
 
         context = {
-            'posts': posts
+            'posts': posts,
+        #     'user': user
         }
 
         return render(request, 'xplrmain/feed.html', context)

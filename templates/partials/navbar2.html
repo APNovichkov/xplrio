@@ -28,7 +28,7 @@
             </span>
             <span class="navbar-text">
                 <div class="profile">
-                    <img class='img-circle' style="height: 40px; width: auto; border-radius: 50%" src="{% static "images/profile_picture.png" %}"/>
+                    <img class='img-circle' style="height: 40px; width: auto; border-radius: 50%" src="{% static {{ userprofile.profile_pic }} %}"/>
                 </div>
             </span>`
         </div>
