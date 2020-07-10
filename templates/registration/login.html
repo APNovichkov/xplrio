@@ -28,7 +28,7 @@
 
 
             <div class="d-flex justify-content-center">
-                <form action="{% url 'login' %}" method='post'>
+                <form method='post'>
                     {% csrf_token %}
                     <div class="form-group row d-flex justify-content-center">
                         <input class="form-control" type="text" name="username" id="id_username" style="background-color: transparent; color: #EEEEEE" placeholder="Username" required>
@@ -39,7 +39,7 @@
                     <div class="form-group row d-flex justify-content-center">
                         <input type="hidden" name="next" value="{{ next }}">
                         <input type="submit" value="Login" class="btn btn-dark mb-2" style="background-color: transparent; border-color: #EEEEEE; margin-right: 10px">
-                        <a href="{% url 'accounts:signup' %}" class="btn btn-dark mb-2" style="background-color: transparent; border-color: #EEEEEE; margin-left: 10px">Sign Up</a>
+                        <a href="{% url 'accounts:sign-up-page' %}" class="btn btn-dark mb-2" style="background-color: transparent; border-color: #EEEEEE; margin-left: 10px">Sign Up</a>
                     </div>
                 </form>
             </div>
