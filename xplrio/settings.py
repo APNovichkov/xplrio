@@ -32,7 +32,7 @@ SECRET_KEY = '!4bd!es$ydu4ftz8fpxe_-ss#$4ti!ok49r6txl+2*eg(r-1-z'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['0.0.0.0', '127.0.0.1', 'xplr-io.herokuapp.com']
+ALLOWED_HOSTS = ['0.0.0.0', '127.0.0.1', 'xplr-io.herokuapp.com', 'localhost']
 
 # Application definition
 
@@ -88,28 +88,39 @@ WSGI_APPLICATION = 'xplrio.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
-DATABASES = {}
-DATABASES['default'] = dj_database_url.config(conn_max_age=600)
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'postgres',
+        'USER': 'postgres',
+        'PASSWORD': 'postgres',
+        'HOST': 'db',
+        'PORT': 5432,
+    }
+}
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'xplrio',
-#         'USER': 'andreynovichkov',
-#         'PASSWORD': '1998Moscow',
-#         'HOST': '127.0.0.1',
-#         'PORT': '5432',
-#     }
+# DATABASES = {}
+# DATABASES['default'] = dj_database_url.config(conn_max_age=600)
 #
-#     # 'default': {
-#     #    'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#     #    'NAME': 'postgres',
-#     #    'USER': '',
-#     #    'PASSWORD': '',
-#     #    'HOST': 'localhost',
-#     #    'PORT': '',
-#     # }
-# }
+# # DATABASES = {
+# #     'default': {
+# #         'ENGINE': 'django.db.backends.postgresql',
+# #         'NAME': 'xplrio',
+# #         'USER': 'andreynovichkov',
+# #         'PASSWORD': '1998Moscow',
+# #         'HOST': '127.0.0.1',
+# #         'PORT': '5432',
+# #     }
+# #
+# #     # 'default': {
+# #     #    'ENGINE': 'django.db.backends.postgresql_psycopg2',
+# #     #    'NAME': 'postgres',
+# #     #    'USER': '',
+# #     #    'PASSWORD': '',
+# #     #    'HOST': 'localhost',
+# #     #    'PORT': '',
+# #     # }
+# # }
 
 
 # Password validation
@@ -152,12 +163,14 @@ SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 
 # STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-STATIC_URL = '/static/'
+# For local
+# STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+# STATIC_URL = '/static/'
 
-# STATICFILES_DIRS = [
-#     os.path.join(BASE_DIR, "static"),
-# ]
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+]
 
 
 # Activate django heroku
