@@ -30,7 +30,7 @@ SECRET_KEY = '!4bd!es$ydu4ftz8fpxe_-ss#$4ti!ok49r6txl+2*eg(r-1-z'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
-ALLOWED_HOSTS = ['0.0.0.0', '127.0.0.1', 'xplr-io.herokuapp.com', 'localhost', 'https://xplrio.dev.novichkov.dev/']
+ALLOWED_HOSTS = ['0.0.0.0', '127.0.0.1', 'xplr-io.herokuapp.com', 'localhost', 'xplrio.dev.novichkov.dev']
 
 # Application definition
 INSTALLED_APPS = [
