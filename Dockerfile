@@ -13,11 +13,11 @@ ADD . .
 RUN pip install -r requirements.txt
 
 ## Expose ports
-EXPOSE 80
+EXPOSE 8000
 
 # Command
 #CMD bash -c "python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
-CMD ["python", "manage.py", "runserver", "0.0.0.0:80"]
+CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
 
 
 
