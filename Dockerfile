@@ -4,7 +4,7 @@ FROM python:3.7
 RUN mkdir app
 WORKDIR /app
 
-ENV PYTHONUNBUFFERED 1
+#ENV PYTHONUNBUFFERED 1
 
 # Copy directory into docker filesystem
 ADD . .
@@ -13,8 +13,11 @@ ADD . .
 RUN pip install -r requirements.txt
 
 ## Expose ports
-EXPOSE 8000
-CMD bash -c "python manage.py migrate && python manage.py runserver"
+EXPOSE 80
+
+# Command
+#CMD bash -c "python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
+CMD ["python", "manage.py", "runserver", "0.0.0.0:80"]
 
 
 
